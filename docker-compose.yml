@@ -18,6 +18,9 @@ services:
       - wordpress:/var/www/html
     secrets:
       - db_password
+    networks:
+      - inner
+      - default
 
   db:
     image: mysql:5.7
@@ -32,14 +35,19 @@ services:
     secrets:
       - db_password
       - db_root_password
+    networks:
+      - default
 
 volumes:
   wordpress:
   db:
-
 
 secrets:
   db_password:
     file: .db_password
   db_root_password:
     file: .db_root_password
+
+networks:
+  inner:
+    external: true

@@ -4,7 +4,7 @@ mkdir -pv work
 
 restore_volume() {
     vol="$1"
-    ./vackup import "$vol" "work/$vol.tar.gz"
+    ./vackup import "$vol" "backup/$vol.tar.gz"
 }
 
 docker compose stop

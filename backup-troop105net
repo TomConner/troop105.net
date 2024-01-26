@@ -4,7 +4,7 @@ mkdir -pv work
 
 backup_volume() {
     vol="$1"
-    ./vackup export "$vol" "work/$vol.tar.gz"
+    ./vackup export "$vol" "backup/$vol.tar.gz"
 }
 
 docker compose stop
