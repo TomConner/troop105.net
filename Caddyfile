@@ -1,0 +1,30 @@
+http:// {
+    redir https://{host}{uri}
+}
+
+{$SITE_DOMAIN} {
+    #file_server browse
+    file_server /hellocaddy/* {
+        root ./public-static
+    }
+    handle {
+        reverse_proxy troop105net-wordpress-1.backend:8080
+    }
+}
+
+(tree-site) {
+    www.troop105treedrive.com {
+        redir https://troop105treedrive.com{uri}
+    }
+    troop105treedrive.com {
+        handle /api/* {
+            reverse_proxy tree105-server-1:4242
+        }
+        file_server /.well-known/* browse {
+            root ./public
+        }
+        handle {
+            reverse_proxy tree105-generator-1:1313
+        }
+    }
+}
