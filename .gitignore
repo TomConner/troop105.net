@@ -1,4 +1,5 @@
-backup
+backups
 .db*
 work
 .env
+.Caddyfile.swo
