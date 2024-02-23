@@ -3,3 +3,4 @@ backups
 work
 .env
 .Caddyfile.swo
+.docker-compose.yml.swp
